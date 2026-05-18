@@ -6,7 +6,7 @@ export function TeamPage() {
     <PlaceholderPage
       seo={seo.team}
       title="Team"
-      subtitle="The people behind Velvet Labs — profiles and roles coming soon."
+      subtitle="The people behind Velvet Labs — a small studio focused on paperless, custom-fit software."
       sectionTitle="Our team"
     />
   )

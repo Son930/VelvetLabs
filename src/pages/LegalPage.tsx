@@ -10,7 +10,7 @@ export function LegalPage() {
       <div className="mx-auto max-w-6xl space-y-8 px-6 pb-20">
         <PageHeader
           title="Legal"
-          subtitle="Privacy and terms documents for Velvet Labs. Placeholder sections until counsel review."
+          subtitle="Privacy and terms for Velvet Labs clients and website visitors. Placeholder sections until counsel review."
         />
         <PlaceholderSection title="Privacy Policy" id="privacy" />
         <PlaceholderSection title="Terms of Service" id="terms" />

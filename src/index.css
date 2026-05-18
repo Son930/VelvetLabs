@@ -13,6 +13,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body,
+#root {
+  overflow-x: clip;
 }
 
 /* Custom Velvet “V” cursor — inverted via mix-blend-difference (see CustomCursor.tsx) */
@@ -195,6 +201,45 @@ body {
 .classic-card:hover {
   border-color: color-mix(in srgb, var(--color-gold) 35%, #f0f0f0);
   box-shadow: 0 16px 48px -20px rgba(196, 163, 90, 0.22);
+}
+
+.classic-input,
+.classic-textarea {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.classic-textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.classic-input::placeholder,
+.classic-textarea::placeholder {
+  color: #a3a3a3;
+}
+
+.classic-input:focus,
+.classic-textarea:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--color-gold) 55%, #e8e8e8);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-gold) 14%, transparent);
+}
+
+.classic-input:disabled,
+.classic-textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .classic-panel-placeholder {

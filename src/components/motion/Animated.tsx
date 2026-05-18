@@ -109,6 +109,7 @@ export function AnimatedPage({ children }: { children: ReactNode }) {
 
   return (
     <motion.div
+      className="overflow-x-clip"
       initial={motionInitial(reduceMotion)}
       animate="visible"
       exit="exit"

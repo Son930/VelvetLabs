@@ -9,10 +9,10 @@ export function Layout() {
   const location = useLocation()
 
   return (
-    <div className="flex min-h-svh flex-col">
+    <div className="flex min-h-svh flex-col overflow-x-clip">
       <CustomCursor />
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-clip">
         <AnimatePresence mode="wait">
           <AnimatedPage key={location.pathname}>
             <Outlet />

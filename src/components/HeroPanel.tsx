@@ -34,6 +34,11 @@ export function HeroPanel({
       ? 'bg-gradient-to-t from-black/65 via-black/25 to-black/10'
       : 'bg-black/10'
 
+  const isSvg = imageSrc.endsWith('.svg')
+  const imageFitClass = isSvg
+    ? 'object-contain object-center p-6 sm:p-10 bg-cream'
+    : 'object-cover'
+
   return (
     <article
       className={`relative w-full overflow-hidden ${fullWidth ? 'rounded-none' : 'rounded-3xl'} ${minHeight} flex ${alignClass}`}
@@ -41,7 +46,7 @@ export function HeroPanel({
       <motion.img
         src={imageSrc}
         alt={imageAlt}
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full ${imageFitClass}`}
         initial={reduceMotion ? false : { scale: 1.06 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}

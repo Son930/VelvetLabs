@@ -6,34 +6,34 @@ import { seo } from '../data/seo'
 
 const services = [
   {
-    title: 'Web applications',
+    title: 'Process digitisation',
     description:
-      'React, Next.js, and modern full-stack apps — dashboards, SaaS, and internal tools.',
+      'Map paper-heavy workflows and replace them with clear digital steps — fewer forms, fewer errors, faster approvals.',
   },
   {
-    title: 'Mobile experiences',
+    title: 'Bespoke web applications',
     description:
-      'Cross-platform and native-friendly flows that feel fast on every device.',
+      'Dashboards, internal tools, and customer-facing apps built around your business — React, Next.js, and modern full-stack delivery.',
   },
   {
-    title: 'UI / UX design',
+    title: 'Workflow automation',
     description:
-      'Wireframes, design systems, and interfaces that match your brand and users.',
+      'Notifications, integrations, and rules that remove manual handoffs between teams and systems.',
   },
   {
-    title: 'Product consulting',
+    title: 'Paper-to-digital migration',
     description:
-      'Scope definition, technical audits, and roadmap support before you commit to build.',
+      'Structured move from spreadsheets and filing cabinets to a single source of truth your staff can trust.',
   },
   {
-    title: 'MVP development',
+    title: 'Discovery & scoping',
     description:
-      'Focused builds to validate ideas quickly — without cutting corners on foundations.',
+      'Honest assessment of what bespoke software should solve first — before you commit to build.',
   },
   {
-    title: 'Maintenance & scale',
+    title: 'Support & iteration',
     description:
-      'Performance tuning, refactors, and team enablement as your product matures.',
+      'Hosting, refinements, training, and maintenance as your processes evolve — Velvet Labs stays your managed operator.',
   },
 ]
 
@@ -44,7 +44,7 @@ export function ServicesPage() {
       <div className="mx-auto max-w-6xl px-6 pb-20">
         <PageHeader
           title="Services"
-          subtitle="End-to-end support for teams that need design, engineering, and delivery under one roof."
+          subtitle="Affordable, custom software to replace the paper processes that slow your business — designed and delivered end to end."
         />
 
         <ClassicDivider className="mb-12 max-w-md" />

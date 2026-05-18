@@ -6,7 +6,7 @@ export function ProcessPage() {
     <PlaceholderPage
       seo={seo.process}
       title="Process"
-      subtitle="How we partner from discovery through launch — details coming soon."
+      subtitle="How we map paper workflows, agree scope, and deliver affordable bespoke software — step by step."
       sectionTitle="How we work"
     />
   )

@@ -5,13 +5,9 @@ type FullBleedProps = {
   className?: string
 }
 
-/** Breaks out of a centered max-width parent to span the full viewport width. */
+/** Full viewport width without `w-screen` (avoids scrollbar overflow). */
 export function FullBleed({ children, className = '' }: FullBleedProps) {
   return (
-    <section
-      className={`relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 ${className}`.trim()}
-    >
-      {children}
-    </section>
+    <section className={`relative w-full ${className}`.trim()}>{children}</section>
   )
 }

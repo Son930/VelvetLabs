@@ -6,7 +6,7 @@ export function WorkPage() {
     <PlaceholderPage
       seo={seo.work}
       title="Work & Projects"
-      subtitle="Selected case studies and shipped products will live here."
+      subtitle="Examples of businesses we've helped go paperless with bespoke software — case studies coming soon."
       sectionTitle="Projects"
     />
   )

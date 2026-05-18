@@ -10,37 +10,37 @@ export type PageSeoConfig = {
 export const seo = {
   home: {
     title: site.name,
-    description: `${site.tagline} Software house for web, mobile, desktop, frontend, backend, and UI/UX.`,
+    description: `${site.tagline} We replace paper-heavy workflows with affordable, custom software for growing businesses.`,
     path: '/',
   },
   work: {
     title: 'Work & Projects',
-    description: `Case studies and selected projects from ${site.name}. Portfolio coming soon.`,
+    description: `See how ${site.name} has helped businesses go paperless with bespoke digital tools. Case studies coming soon.`,
     path: '/work',
   },
   about: {
     title: 'About',
-    description: `Learn about ${site.name} — our mission, lab culture, and how we build digital products.`,
+    description: `Why ${site.name} builds affordable bespoke software — and how we help teams leave paper processes behind.`,
     path: '/about',
   },
   team: {
     title: 'Team',
-    description: `Meet the people behind ${site.name}. Team profiles coming soon.`,
+    description: `The people behind ${site.name} — a small studio focused on paperless, custom-fit software.`,
     path: '/team',
   },
   process: {
     title: 'Process',
-    description: `How ${site.name} partners with clients — discovery, design, build, and launch.`,
+    description: `How ${site.name} maps your paper workflows, designs bespoke tools, and delivers managed software with ongoing support.`,
     path: '/process',
   },
   services: {
     title: 'Services',
-    description: `Web apps, mobile, UI/UX, consulting, and MVP development from ${site.name}.`,
+    description: `Process digitisation, bespoke web apps, and workflow automation from ${site.name} — without enterprise-suite prices.`,
     path: '/services',
   },
   contact: {
     title: 'Contact',
-    description: `Get in touch with ${site.name} to start your next project.`,
+    description: `Tell ${site.name} which paper processes slow you down. We'll reply with sensible next steps.`,
     path: '/contact',
   },
   legal: {

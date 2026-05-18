@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ClassicDivider } from '../ClassicDivider'
+import { images } from '../../data/images'
 import {
   fadeUp,
   lineGrow,
@@ -9,9 +10,9 @@ import {
 } from '../../lib/motion'
 
 const lines = [
-  'Helping businesses evolve',
-  'through modern digital',
-  'transformation.',
+  'Less paper.',
+  'Faster workflows.',
+  'Software built for you.',
 ]
 
 export default function HomeHero2() {
@@ -19,6 +20,12 @@ export default function HomeHero2() {
 
   return (
     <section className="relative overflow-hidden py-20 sm:py-24 lg:py-32">
+      <img
+        src={images.heroVelvet}
+        alt=""
+        className="pointer-events-none absolute top-8 right-0 hidden h-48 w-auto max-w-[40%] rounded-2xl object-cover opacity-[0.12] sm:block lg:h-56"
+        aria-hidden
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(196,163,90,0.08),transparent_65%)]"
@@ -58,8 +65,9 @@ export default function HomeHero2() {
         <ClassicDivider className="my-10 max-w-md" />
 
         <motion.p variants={fadeUp} className="lead-classic max-w-lg">
-          Strategy, design, and engineering — delivered with the calm precision of a
-          classic studio.
+          We design and deliver bespoke, affordable digital tools — not bloated
+          enterprise suites — so your processes fit the way your business
+          actually runs.
         </motion.p>
       </motion.div>
     </section>

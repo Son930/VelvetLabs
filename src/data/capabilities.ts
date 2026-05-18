@@ -1,8 +1,8 @@
 export const capabilities = [
-  { label: 'Web development', short: 'Web' },
-  { label: 'Mobile apps', short: 'Mobile' },
-  { label: 'Desktop software', short: 'Desktop' },
-  { label: 'Frontend engineering', short: 'Frontend' },
-  { label: 'Backend systems', short: 'Backend' },
-  { label: 'UI / UX design', short: 'UI/UX' },
+  { label: 'Paperless workflows', short: 'Paperless' },
+  { label: 'Bespoke business apps', short: 'Bespoke' },
+  { label: 'Process digitisation', short: 'Digitise' },
+  { label: 'Workflow automation', short: 'Automate' },
+  { label: 'Affordable delivery', short: 'Affordable' },
+  { label: 'Ongoing support', short: 'Support' },
 ] as const

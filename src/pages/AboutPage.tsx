@@ -1,14 +1,15 @@
 import { ClassicDivider } from '../components/ClassicDivider'
 import { PageHeader } from '../components/PageHeader'
-import { AnimatedItem, AnimatedStagger } from '../components/motion/Animated'
+import { AnimatedItem, AnimatedSection, AnimatedStagger } from '../components/motion/Animated'
 import { PageSEO } from '../components/PageSEO'
 import { seo } from '../data/seo'
+import { site } from '../data/site'
 
 const values = [
-  'Craft over shortcuts — we care about the details users feel.',
-  'Transparent collaboration — you always know where things stand.',
-  'Pragmatic engineering — the right tool for the problem, not hype.',
-  'Continuous learning — our lab mindset keeps us sharp and curious.',
+  'Paperless where it counts — we target the workflows that waste the most time and paper.',
+  'Bespoke, not boxed — software shaped around how your team actually operates.',
+  'Honest scope — affordable delivery without hiding cost in bloated platforms.',
+  'Managed partnership — we host, operate, and support your software so your team can focus on using it.',
 ]
 
 export function AboutPage() {
@@ -18,31 +19,41 @@ export function AboutPage() {
       <div className="mx-auto max-w-6xl px-6 pb-20">
         <PageHeader
           title="About"
-          subtitle="We're a software house lab — a small team that builds digital products with intention, clarity, and room to grow."
+          subtitle="Velvet Labs is a small studio that helps businesses leave paper-heavy processes behind — with affordable, custom-built software."
         />
 
         <ClassicDivider className="mb-12 max-w-md" />
+
+        <AnimatedSection>
+          <section className="classic-card mb-12 p-8 sm:p-10">
+            <h2 className="font-serif text-2xl text-ink">Our team</h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+              {site.foundingTeamExperienceShort}
+            </p>
+          </section>
+        </AnimatedSection>
 
         <AnimatedStagger className="grid gap-8 lg:grid-cols-2">
           <AnimatedItem>
             <section className="classic-card p-8 sm:p-10">
               <h2 className="font-serif text-2xl text-ink">Our mission</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
-                Velvet Labs exists to help founders and teams ship software that earns
-                trust. We combine product thinking, solid engineering, and a calm
-                delivery rhythm so you can focus on what matters — your users and your
-                business.
+                Too many teams still run on forms, spreadsheets, and filing
+                cabinets — losing hours to duplicate entry and mistakes. We exist
+                to replace those paper-based processes with calm, clear digital
+                tools your people will actually use.
               </p>
             </section>
           </AnimatedItem>
 
           <AnimatedItem>
             <section className="classic-card p-8 sm:p-10">
-              <h2 className="font-serif text-2xl text-ink">Lab culture</h2>
+              <h2 className="font-serif text-2xl text-ink">How we work</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
-                We treat every engagement like a lab experiment: hypothesize, build,
-                measure, refine. That means prototypes when useful, honest feedback
-                early, and codebases your team can own long after we hand off.
+                We start by understanding your workflow as it is today, then
+                design and build software around it — not the other way around.
+                Velvet Labs builds, hosts, and manages the product with ongoing
+                support; your team uses it day to day while we remain the operator.
               </p>
             </section>
           </AnimatedItem>
