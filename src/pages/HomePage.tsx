@@ -7,6 +7,7 @@ import {
   IconWorkflow,
 } from '../components/decor/BrandIcons'
 import { FullBleed } from '../components/FullBleed'
+import { GridRevealSection } from '../components/home/GridRevealSection'
 import { HomeHero } from '../components/home/HomeHero'
 import HomeHero2 from '../components/home/HomeHero2'
 import { HeroPanel } from '../components/HeroPanel'
@@ -41,6 +42,38 @@ const benefits = [
   },
 ]
 
+const capabilities = [
+  {
+    title: 'Process digitisation',
+    description:
+      'Map paper-heavy workflows and replace them with clear digital steps — fewer forms, fewer errors, faster approvals.',
+  },
+  {
+    title: 'Bespoke web applications',
+    description:
+      'Dashboards, internal tools, and customer-facing apps built around your business — modern full-stack delivery.',
+  },
+  {
+    title: 'Workflow automation',
+    description:
+      'Notifications, integrations, and rules that remove manual handoffs between teams and systems.',
+  },
+] as const
+
+const values = [
+  'Paperless where it counts — we target the workflows that waste the most time and paper.',
+  'Bespoke, not boxed — software shaped around how your team actually operates.',
+  'Honest scope — affordable delivery without hiding cost in bloated platforms.',
+  'Managed partnership — we host, operate, and support your software so your team can focus on using it.',
+] as const
+
+const processSteps = [
+  { step: '01', label: 'Map', detail: 'We document how work flows today — forms, handoffs, and bottlenecks.' },
+  { step: '02', label: 'Scope', detail: 'Focused scope and milestones you can follow before build starts.' },
+  { step: '03', label: 'Build', detail: 'Design and delivery of bespoke software, hosted and managed by us.' },
+  { step: '04', label: 'Support', detail: 'Ongoing hosting, refinements, and support as your processes evolve.' },
+] as const
+
 export function HomePage() {
   return (
     <>
@@ -56,6 +89,45 @@ export function HomePage() {
 
       <HomeHero2 />
 
+      <GridRevealSection className="py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-8">
+          <AnimatedStagger className="text-center">
+            <AnimatedItem>
+              <p className="eyebrow">What we build</p>
+            </AnimatedItem>
+            <AnimatedItem>
+              <h2 className="mt-4 font-serif text-3xl font-medium tracking-wide text-ink sm:text-4xl">
+                Capabilities for paperless operations
+              </h2>
+            </AnimatedItem>
+            <AnimatedItem>
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                Affordable, custom software to replace the paper processes that slow your
+                business — designed and delivered end to end.
+              </p>
+            </AnimatedItem>
+          </AnimatedStagger>
+
+          <ClassicDivider className="mx-auto my-10 max-w-md" />
+
+          <AnimatedStagger className="grid gap-6 md:grid-cols-3">
+            {capabilities.map(({ title, description }) => (
+              <AnimatedItem key={title}>
+                <article className="classic-card h-full p-8">
+                  <p className="eyebrow mb-4">Capability</p>
+                  <h3 className="font-serif text-xl text-ink">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">{description}</p>
+                </article>
+              </AnimatedItem>
+            ))}
+          </AnimatedStagger>
+        </div>
+      </GridRevealSection>
+
+      <div className="mx-auto max-w-7xl px-8">
+        <ClassicDivider className="mx-auto max-w-md py-10 sm:py-12" />
+      </div>
+
       <section className="mx-auto max-w-7xl px-8 py-10 sm:py-12">
         <AnimatedSection>
           <article className="classic-card mx-auto max-w-4xl p-8 sm:p-10">
@@ -66,11 +138,31 @@ export function HomePage() {
             <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               {site.foundingTeamExperience}
             </p>
-            <Link to="/about" className="classic-link mt-6 inline-block">
-              About Velvet Labs
-            </Link>
+            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+              {site.foundingTeamExperienceShort} We start by understanding your workflow as it
+              is today, then design and build software around it — not the other way around.
+            </p>
           </article>
         </AnimatedSection>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-8 pb-4 sm:pb-8">
+        <AnimatedStagger slow>
+          <AnimatedItem>
+            <h2 className="text-center font-serif text-2xl font-medium tracking-wide text-ink sm:text-3xl">
+              What we believe
+            </h2>
+          </AnimatedItem>
+          <ul className="mx-auto mt-10 max-w-3xl space-y-4">
+            {values.map((item) => (
+              <AnimatedItem key={item}>
+                <li className="border-l-2 border-gold/60 py-1 pl-5 text-sm leading-relaxed text-muted sm:text-base">
+                  {item}
+                </li>
+              </AnimatedItem>
+            ))}
+          </ul>
+        </AnimatedStagger>
       </section>
 
       <div className="mx-auto max-w-7xl px-8">
@@ -113,12 +205,12 @@ export function HomePage() {
               Web apps, dashboards, and workflows designed for how you operate —
               delivered affordably, without forcing you into a generic platform.
             </p>
-            <Link to="/about" className="btn-classic-light mt-8">
-              Why Velvet Labs
+            <Link to="/contact" className="btn-classic-light mt-8">
+              Discuss your workflow
             </Link>
           </HeroPanel>
 
-          <aside className="relative hidden overflow-hidden rounded-3xl border border-neutral-100 bg-cream lg:block">
+          <aside className="relative hidden overflow-hidden rounded-3xl border border-border bg-cream lg:block">
             <img
               src={images.blue}
               alt=""
@@ -171,7 +263,7 @@ export function HomePage() {
           })}
         </AnimatedStagger>
 
-        <AnimatedSection className="relative mt-14 overflow-hidden rounded-3xl border border-neutral-100 bg-cream p-8 sm:p-10">
+        <AnimatedSection className="relative mt-14 overflow-hidden rounded-3xl border border-border bg-cream p-8 sm:p-10">
           <img
             src={images.decorRibbon}
             alt=""
@@ -184,11 +276,35 @@ export function HomePage() {
               build — with clear milestones, hosting, and ongoing support managed by
               Velvet Labs.
             </p>
-            <Link to="/process" className="classic-link mt-6 inline-block">
-              See our process
+            <Link to="/contact" className="classic-link mt-6 inline-block">
+              Talk through your process
             </Link>
           </div>
         </AnimatedSection>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-8 pb-8 sm:pb-12">
+        <AnimatedStagger className="text-center">
+          <AnimatedItem>
+            <p className="eyebrow">How we work</p>
+          </AnimatedItem>
+          <AnimatedItem>
+            <h2 className="mt-4 font-serif text-2xl font-medium tracking-wide text-ink sm:text-3xl">
+              A clear path from paper to product
+            </h2>
+          </AnimatedItem>
+        </AnimatedStagger>
+        <AnimatedStagger className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {processSteps.map(({ step, label, detail }) => (
+            <AnimatedItem key={step}>
+              <article className="classic-card h-full p-6">
+                <p className="font-serif text-2xl text-gold">{step}</p>
+                <h3 className="mt-2 font-serif text-lg text-ink">{label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{detail}</p>
+              </article>
+            </AnimatedItem>
+          ))}
+        </AnimatedStagger>
       </section>
 
       <FullBleed>
@@ -215,8 +331,8 @@ export function HomePage() {
                 <Link to="/contact" className="btn-classic-light">
                   Get in touch
                 </Link>
-                <Link to="/services" className="classic-link classic-link-light">
-                  View services
+                <Link to="/legal" className="classic-link classic-link-light">
+                  Privacy & terms
                 </Link>
               </div>
             </div>
@@ -228,18 +344,13 @@ export function HomePage() {
         <ClassicDivider className="mb-10" />
         <AnimatedStagger className="flex flex-wrap justify-center gap-8">
           <AnimatedItem>
-            <Link to="/work" className="classic-link">
-              View work
-            </Link>
-          </AnimatedItem>
-          <AnimatedItem>
-            <Link to="/process" className="classic-link">
-              Our process
-            </Link>
-          </AnimatedItem>
-          <AnimatedItem>
             <Link to="/contact" className="classic-link">
               Get in touch
+            </Link>
+          </AnimatedItem>
+          <AnimatedItem>
+            <Link to="/legal" className="classic-link">
+              Legal
             </Link>
           </AnimatedItem>
         </AnimatedStagger>

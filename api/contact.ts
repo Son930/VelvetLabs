@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+import { buildContactNotificationEmail } from './email/contactNotification'
 
 type ContactBody = {
   name?: string
@@ -100,19 +101,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
   })
 
-  const subject = `Contact: ${trimmedName}${trimmedCompany ? ` (${trimmedCompany})` : ''}`
-
-  const text = [
-    `Name: ${trimmedName}`,
-    `Email: ${trimmedEmail}`,
-    trimmedCompany ? `Company: ${trimmedCompany}` : null,
-    '',
-    trimmedMessage,
-    '',
-    `— Sent via velvetlabs.co.uk contact form (${clientIp(req)})`,
-  ]
-    .filter(Boolean)
-    .join('\n')
+  const { subject, text, html } = buildContactNotificationEmail({
+    name: trimmedName,
+    email: trimmedEmail,
+    company: trimmedCompany || undefined,
+    message: trimmedMessage,
+    clientIp: clientIp(req),
+  })
 
   try {
     await transporter.sendMail({
@@ -121,6 +116,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       replyTo: trimmedEmail,
       subject,
       text,
+      html,
     })
   } catch (err) {
     console.error('SMTP error:', err)

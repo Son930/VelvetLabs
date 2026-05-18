@@ -4,14 +4,45 @@ import { useEffect, useState } from 'react'
 const TEXT_CURSOR_SELECTOR =
   'input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]), textarea, select, [contenteditable="true"]'
 
+function prefersCustomCursor(): boolean {
+  if (typeof window === 'undefined') return false
+  return (
+    window.matchMedia('(pointer: fine)').matches &&
+    !window.matchMedia('(pointer: coarse)').matches
+  )
+}
+
 export function CustomCursor() {
   const reduceMotion = useReducedMotion()
+  const [enabled, setEnabled] = useState(false)
   const [position, setPosition] = useState({ x: -100, y: -100 })
   const [visible, setVisible] = useState(false)
   const [overText, setOverText] = useState(false)
 
   useEffect(() => {
-    if (reduceMotion) return
+    const fineMq = window.matchMedia('(pointer: fine)')
+    const coarseMq = window.matchMedia('(pointer: coarse)')
+
+    const syncEnabled = () => {
+      setEnabled(
+        fineMq.matches && !coarseMq.matches && !window.matchMedia('(hover: none)').matches,
+      )
+    }
+
+    syncEnabled()
+    fineMq.addEventListener('change', syncEnabled)
+    coarseMq.addEventListener('change', syncEnabled)
+    window.matchMedia('(hover: none)').addEventListener('change', syncEnabled)
+
+    return () => {
+      fineMq.removeEventListener('change', syncEnabled)
+      coarseMq.removeEventListener('change', syncEnabled)
+      window.matchMedia('(hover: none)').removeEventListener('change', syncEnabled)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (reduceMotion || !enabled || !prefersCustomCursor()) return
 
     document.documentElement.classList.add('velvet-custom-cursor')
 
@@ -36,9 +67,9 @@ export function CustomCursor() {
       document.documentElement.removeEventListener('mouseleave', onLeave)
       document.documentElement.removeEventListener('mouseenter', onEnter)
     }
-  }, [reduceMotion])
+  }, [reduceMotion, enabled])
 
-  if (reduceMotion) return null
+  if (reduceMotion || !enabled) return null
 
   return (
     <div

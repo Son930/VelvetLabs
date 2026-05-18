@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ClassicDivider } from '../ClassicDivider'
-import { companyNav, legalNav, primaryNav } from '../../data/navigation'
+import { legalNav, primaryNav } from '../../data/navigation'
 import { fadeUp, motionInitial, staggerContainer } from '../../lib/motion'
 import { site, socialLinks } from '../../data/site'
 
@@ -34,7 +34,7 @@ export function Footer() {
 
   return (
     <motion.footer
-      className="bg-white"
+      className="bg-surface transition-colors duration-300"
       initial={motionInitial(reduceMotion)}
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
@@ -42,7 +42,7 @@ export function Footer() {
     >
       <ClassicDivider className="mx-auto max-w-6xl px-6 pt-14" />
 
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-12 sm:grid-cols-2 lg:grid-cols-3">
         <motion.div variants={fadeUp} className="space-y-5 sm:col-span-2 lg:col-span-1">
           <p className="font-serif text-3xl tracking-tight text-ink">V</p>
           <p className="lead-classic max-w-xs !text-base !not-italic">{site.tagline}</p>
@@ -61,14 +61,13 @@ export function Footer() {
           </div>
         </motion.div>
 
-        <FooterLinkGroup heading="Explore" links={primaryNav} />
-        <FooterLinkGroup heading="Company" links={companyNav} />
+        <FooterLinkGroup heading="Site" links={primaryNav} />
         <FooterLinkGroup heading="Legal" links={legalNav} />
       </div>
 
       <motion.p
         variants={fadeUp}
-        className="border-t border-neutral-100 pb-8 pt-6 text-center text-[10px] uppercase tracking-[0.28em] text-neutral-400"
+        className="border-t border-border pb-8 pt-6 text-center text-[10px] uppercase tracking-[0.28em] text-muted"
       >
         © {year} {site.name}
       </motion.p>

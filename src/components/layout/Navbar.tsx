@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { fadeDown, fadeUp, motionInitial, staggerContainer } from '../../lib/motion'
 import { navLinks, primaryNav } from '../../data/navigation'
+import { ThemeToggle } from '../ThemeToggle'
 
 const leftLinks = primaryNav.slice(0, 2)
 const rightLinks = primaryNav.slice(2)
@@ -19,7 +20,7 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="border-b border-neutral-100/80 bg-white"
+      className="border-b border-border/80 bg-surface transition-colors duration-300"
       initial={motionInitial(reduceMotion)}
       animate="visible"
       variants={fadeDown}
@@ -58,7 +59,10 @@ export function Navbar() {
           </Link>
         </motion.div>
 
-        <nav className="hidden items-center justify-end gap-10 md:flex md:col-start-3">
+        <nav className="hidden items-center justify-end gap-8 md:flex md:col-start-3">
+          <motion.div variants={fadeUp}>
+            <ThemeToggle />
+          </motion.div>
           {rightLinks.map(({ label, path }) => (
             <motion.div key={path} variants={fadeUp}>
               <NavLink to={path} className={navLinkClass}>
@@ -82,13 +86,16 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="overflow-hidden border-t border-neutral-100 px-6 md:hidden"
+            className="overflow-hidden border-t border-border px-6 md:hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <ul className="flex flex-col gap-5 py-6">
+              <li className="pb-2">
+                <ThemeToggle />
+              </li>
               {navLinks.map(({ label, path }, i) => (
                 <motion.li
                   key={path}

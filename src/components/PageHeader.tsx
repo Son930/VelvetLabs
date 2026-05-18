@@ -11,7 +11,7 @@ export function PageHeader({ title, subtitle }: PageHeaderProps) {
 
   return (
     <motion.header
-      className="mb-12 space-y-4 border-b border-neutral-100 pb-10"
+      className="mb-12 space-y-4 border-b border-border pb-10"
       initial={motionInitial(reduceMotion)}
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}

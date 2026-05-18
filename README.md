@@ -22,11 +22,13 @@ npm run preview  # preview production build
 
 ## Pages
 
-Home · Work · About · Team · Process · Services · Contact · Legal
+Home · Contact · Legal
 
 ## Contact form (Vercel)
 
-The contact page POSTs to `/api/contact`, a Vercel Serverless Function that sends mail via **IONOS SMTP** (Nodemailer).
+The contact page POSTs to `/api/contact`, a Vercel Serverless Function that sends mail via **IONOS SMTP** (Nodemailer). Notifications use a branded **HTML template** defined in `api/email/contactNotification.ts`, with a plain-text fallback for clients that do not render HTML.
+
+**IONOS note:** IONOS does not provide hosted “outbound email templates” for API-sent mail — the HTML is authored in this repo. To send **auto-replies to people who submit the form**, add a second `sendMail` call in the API handler or configure auto-reply rules in IONOS webmail separately.
 
 ### Where to add IONOS details
 

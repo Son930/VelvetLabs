@@ -1,6 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
+    <script>
+      try {
+        var t = localStorage.getItem('velvet-theme');
+        document.documentElement.classList.remove('dark', 'light');
+        document.documentElement.classList.add(t === 'light' ? 'light' : 'dark');
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +17,7 @@
       name="description"
       content="Velvet Labs — redefining modern luxury with modern technology. Software house labs for web, mobile, and product."
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0a0a0a" />
     <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="website" />

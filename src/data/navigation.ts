@@ -1,14 +1,7 @@
 export const primaryNav = [
   { label: 'Home', path: '/' },
-  { label: 'Work', path: '/work' },
-  { label: 'Services', path: '/services' },
   { label: 'Contact', path: '/contact' },
-] as const
-
-export const companyNav = [
-  { label: 'About', path: '/about' },
-  { label: 'Team', path: '/team' },
-  { label: 'Process', path: '/process' },
+  { label: 'Legal', path: '/legal' },
 ] as const
 
 export const legalNav = [
@@ -16,9 +9,5 @@ export const legalNav = [
   { label: 'Terms', path: '/legal#terms' },
 ] as const
 
-/** All routes for mobile menu & footer */
-export const navLinks = [
-  ...primaryNav,
-  ...companyNav,
-  { label: 'Legal', path: '/legal' },
-] as const
+/** All routes for mobile menu */
+export const navLinks = [...primaryNav] as const

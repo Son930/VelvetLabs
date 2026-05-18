@@ -29,9 +29,9 @@ export function HomeHero() {
             <Link to="/contact" className="btn-classic-light">
               Start going paperless
             </Link>
-            <Link to="/services" className="classic-link classic-link-light">
+            <a href="/#capabilities" className="classic-link classic-link-light">
               What we build
-            </Link>
+            </a>
           </div>
         </AnimatedItem>
       </AnimatedReveal>
