@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import { buildContactNotificationEmail } from './email/contactNotification'
+import { buildContactNotificationEmail } from './email/contactNotification.js'
 
 type ContactBody = {
   name?: string
