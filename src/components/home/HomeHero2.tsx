@@ -20,12 +20,12 @@ export default function HomeHero2() {
 
   return (
     <section className="relative overflow-hidden py-20 sm:py-24 lg:py-32">
-      <img
+      {/* <img
         src={images.heroVelvet}
         alt=""
         className="pointer-events-none absolute top-8 right-0 hidden h-48 w-auto max-w-[40%] rounded-2xl object-cover opacity-[0.12] sm:block lg:h-56"
         aria-hidden
-      />
+      /> */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(196,163,90,0.08),transparent_65%)]"

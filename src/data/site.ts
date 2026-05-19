@@ -12,20 +12,5 @@ export const site = {
 } as const
 
 export const socialLinks = [
-  {
-    label: 'LinkedIn',
-    href: 'https://linkedin.com/company/velvetlabs',
-  },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/velvetlabs',
-  },
-  {
-    label: 'X',
-    href: 'https://x.com/velvetlabs',
-  },
-  {
-    label: 'Instagram',
-    href: 'https://instagram.com/velvetlabs',
-  },
+  
 ] as const
