@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ClassicDivider } from '../ClassicDivider'
-import { images } from '../../data/images'
 import {
   fadeUp,
   lineGrow,
